@@ -1,0 +1,72 @@
+/************************************************************************************
+*******************    VARIABLES                            *************************
+*************************************************************************************/
+$breakpoints: (
+		xs: 0,
+		sm: 576px,
+		md: 768px,
+		lg: 992px,
+		xl: 1200px,
+		xxl: 1500px
+);
+
+$base: #F7F6F0;
+$darken: darken(#F7F6F0, 30%);
+$back: darken(#F7F6F0, 40%);
+
+/**
+ * Typography
+ */
+
+$AMARE: 'AMARE', Helvetica, sans-serif;
+$AMAMO: 'AMAMO', Helvetica, sans-serif;
+
+
+$font-family-base: $AMAMO;
+
+$font-size-base: 62.5%; /*https://snook.ca/archives/html_and_css/font-size-with-rem*/
+$line-height-base: 1.5;
+
+$size_font_body_m: 1.8rem;
+$size_line_height_body_m: 2.5rem;
+
+$size_font_body_d: 2.5rem;
+$size_line_height_body_d: 3.5rem;
+
+
+$size_font_navigation_m: 5.0rem;
+$size_line_height_navigation_m: 6.0rem;
+
+$size_font_small_m: 1.0rem;
+$size_line_height_small_m: 1.2rem;
+
+/**
+ * Colors
+ */
+
+$highlight: #404041;
+
+$text-color: #3D3D40;
+$body-bg: white;
+$selection-bg: $highlight;
+
+$vt_pink: rgb(255,149,227);
+
+/**
+ * Transitions
+ */
+
+$transition-duration: 300ms;
+
+/**
+ * margin, padding, widths column
+ */
+$offset_m: 2.7rem;
+$offset_d: 1rem;
+
+$gutter_m: 2.7rem;
+$gutter_d: 2rem;
+
+$header_height_m: 3.7rem;
+$header_height_d: 6.5rem;
+

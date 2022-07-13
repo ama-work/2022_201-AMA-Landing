@@ -1,0 +1,78 @@
+/************************************************************************************
+*******************    DEFAULTS                             *************************
+*************************************************************************************/
+
+*{
+	box-sizing: border-box;
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+html,
+body{
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: white;
+	background-color: black;
+
+	margin: 0;
+	padding: 0;
+
+	width: 100%;
+	min-height: 100%;
+	height: auto;
+
+	position: relative;
+	overflow: hidden;
+}
+
+h1, h2, h3, h4{
+	font-weight: normal;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+::selection{
+	background: $highlight;
+	color: #fff;
+	text-shadow: none;
+}
+
+::-moz-selection{
+	background: $highlight;
+	color: #fff;
+	text-shadow: none;
+
+}
+
+::-webkit-selection{
+	background: $highlight;
+	color: #fff;
+	text-shadow: none;
+}
+
+// ul{
+// 	margin: 0;
+// 	padding: 0;
+// 	li{
+// 		list-style: none;
+// 		margin: 0;
+// 		padding: 0;
+// 	}
+// }
+
+a{
+	&:link,
+	&:visited,
+	&:active{
+		color: white;
+		text-decoration: none;
+	}
+
+	&:hover{
+		text-decoration: none;
+	}
+}

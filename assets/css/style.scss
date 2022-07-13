@@ -1,0 +1,38 @@
+/*
+Theme Name: AMA
+Theme URI: https://ama.work
+Author: AMA — by David Penuela
+Author URI: https://ama.work
+Description:  🏗 Website for AMA, 2022
+Version: 0.1
+
+*/
+//----------------------------------*\
+// INIT – External libraries
+//----------------------------------*/
+
+@import './mixins/_utils';
+
+//----------------------------------*\
+// CONFIG MODULES
+//----------------------------------*/
+@import './modules/_vars';
+@import './mixins/_breakpoints';
+@import './modules/_clearfix';
+@import './modules/_defaults';
+@import './modules/_general';
+//----------------------------------*\
+// PARTIALS
+//----------------------------------*/
+
+//----------------------------------*\
+// PAGES
+//----------------------------------*/
+
+//----------------------------------*\
+// OBJECTS & MODULES
+//----------------------------------*/
+@import './modules/_typography_import';
+//----------------------------------*\
+// External modifications
+//----------------------------------*/

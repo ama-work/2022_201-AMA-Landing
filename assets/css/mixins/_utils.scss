@@ -1,0 +1,47 @@
+/************************************************************************************
+*******************    UTILS                                *************************
+*************************************************************************************/
+
+
+// @include disable-selection()
+
+@mixin disable-selection() {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently */
+	-webkit-tap-highlight-color: transparent;
+}
+
+
+/**
+ * Removes the scroll bar
+ *
+ * Usage:
+ * .selector {
+ *   @include remove-scrollbar;
+ * }
+ */
+@mixin remove-scrollbar(){
+	&::-webkit-scrollbar{
+		width: 0px;
+		background: transparent;
+	}
+	*{
+		-ms-overflow-style: none !important;
+	}
+	&::-webkit-scrollbar{
+		width: 0;
+	}
+	&::-webkit-scrollbar-track{
+		box-shadow: none;
+		border-radius: 0;
+	}
+	&::-webkit-scrollbar-thumb{
+		border-radius: 0;
+		background-color: transparent;
+	}
+}
+
