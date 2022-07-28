@@ -1,6 +1,6 @@
 <template>
 	<div class="front-page">
-		<VideoBG/>
+		<VideoBG />
 		<TextLayer/>
 		<JobPosition/>
 	</div>
@@ -18,7 +18,16 @@ export default {
   },
   methods: {
     setupIndex() {
-      console.log("SetupIndex");
+      this.setHeight();
+    },
+    setHeight() {
+      var vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      const reportWindowSize = () => {
+        vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      };
+      window.onresize = reportWindowSize;
     }
   },
   components: { TextLayer, JobPosition, VideoBG }

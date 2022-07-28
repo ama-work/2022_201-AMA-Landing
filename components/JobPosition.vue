@@ -1,7 +1,7 @@
 <!-- Please remove this file from your project -->
 <template>
-	<div class="job_position" id="job_position" :class="{'active': isAccActive === true}">
-		<div class="job_position_header" id="job_position_header" @click="toggleJobPositonAcc">
+	<div class="job_position" id="mydiv" :class="{'active': isAccActive === true}">
+		<div class="job_position_header" id="mydivheader" @click="toggleJobPositonAcc">
 			<span>Job Position</span>
 			<span id="arrow">
 				<SVGArrow :rotation="isAccActive" />
@@ -39,9 +39,9 @@
 				</ul>
 				<p>Please send a CV to info@ama.work with:
 					<ul>
-						<li>Top 3 projects you have worked on that you love</li>
-						<li>Last 3 projects you have worked on</li>
-						<li>3 Instagram accounts you want to share</li>
+						<li>3 projects you have worked on that you love</li>
+						<li>3 latest projects you have worked on</li>
+						<li>3 favorite websites and why you like them (excluding own work)</li>
 					</ul>
 				</p>
 			</div>
@@ -58,19 +58,26 @@
   right: 0;
   bottom: 0;
   left: 0;
-
   border: 0.1rem solid black;
+
   p,
   a {
     color: black;
   }
   @include media-breakpoint-up(md) {
     width: 45rem;
-    top: 30%;
+    top: 25%;
     right: 20%;
     bottom: unset;
     left: unset;
   }
+}
+.job_position_header {
+  cursor: pointer;
+}
+.job_position_content_header {
+  border-top: 0.1rem solid black;
+  border-bottom: 0.1rem solid black;
 }
 .job_position_header,
 .job_position_content_header {
@@ -78,7 +85,6 @@
   line-height: 1.35;
   padding: 1.2rem 2rem 1.3rem;
 
-  border-bottom: 0.1rem solid black;
   position: relative;
 }
 .job_position {
@@ -91,7 +97,7 @@
     .job_position_content {
       height: calc(100vh - 12.4rem);
       @include media-breakpoint-up(md) {
-        height: 40vh;
+        height: 60vh;
       }
     }
   }
@@ -100,6 +106,7 @@
   height: 0vh;
   overflow: hidden;
   transition: all $transition-duration ease-in-out;
+  border-top: 0;
   .job_position_content_header {
     text-align: center;
   }
@@ -123,84 +130,72 @@ export default {
   },
   data() {
     return {
-      isAccActive: false
+      isAccActive: false,
+      canOpen: true,
+      pos1: 0,
+      pos2: 0,
+      pos3: 0,
+      pos4: 0,
+      elmnt: ""
     };
   },
   methods: {
     setupJP() {
-      console.log("JP");
-      this.dragElement("job_position");
+      this.dragElement(document.getElementById("mydiv"));
+      if (this.$route.query.job === "yes") {
+        setTimeout(() => {
+          this.toggleJobPositonAcc();
+        }, 1000);
+      }
     },
     toggleJobPositonAcc() {
-      this.isAccActive = !this.isAccActive;
+      if (this.canOpen) this.isAccActive = !this.isAccActive;
     },
 
     dragElement(elmnt) {
-      var dragItem = document.getElementById("job_position");
-      var container = document.body;
-
-      var active = false;
-      var currentX;
-      var currentY;
-      var initialX;
-      var initialY;
-      var xOffset = 0;
-      var yOffset = 0;
-
-      container.addEventListener("touchstart", dragStart, false);
-      container.addEventListener("touchend", dragEnd, false);
-      container.addEventListener("touchmove", drag, false);
-
-      container.addEventListener("mousedown", dragStart, false);
-      container.addEventListener("mouseup", dragEnd, false);
-      container.addEventListener("mousemove", drag, false);
-
-      function dragStart(e) {
-        console.log("drag");
-        if (e.type === "touchstart") {
-          initialX = e.touches[0].clientX - xOffset;
-          initialY = e.touches[0].clientY - yOffset;
-        } else {
-          initialX = e.clientX - xOffset;
-          initialY = e.clientY - yOffset;
-        }
-
-        if (e.target === dragItem) {
-          console.log("drag ok");
-          console.log(dragItem);
-          active = true;
-        }
+      this.elmnt = elmnt;
+      if (document.getElementById(this.elmnt.id + "header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(
+          this.elmnt.id + "header"
+        ).onmousedown = this.dragMouseDown;
+      } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        this.elmnt.onmousedown = this.dragMouseDown;
       }
+    },
+    dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      this.pos3 = e.clientX;
+      this.pos4 = e.clientY;
+      document.onmouseup = this.closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = this.elementDrag;
+    },
 
-      function dragEnd(e) {
-        initialX = currentX;
-        initialY = currentY;
+    elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // calculate the new cursor position:
+      this.pos1 = this.pos3 - e.clientX;
+      this.pos2 = this.pos4 - e.clientY;
+      this.pos3 = e.clientX;
+      this.pos4 = e.clientY;
+      // set the element's new position:
+      this.elmnt.style.top = this.elmnt.offsetTop - this.pos2 + "px";
+      this.elmnt.style.left = this.elmnt.offsetLeft - this.pos1 + "px";
+      this.canOpen = false;
+    },
 
-        active = false;
-      }
-
-      function drag(e) {
-        if (active) {
-          e.preventDefault();
-
-          if (e.type === "touchmove") {
-            currentX = e.touches[0].clientX - initialX;
-            currentY = e.touches[0].clientY - initialY;
-          } else {
-            currentX = e.clientX - initialX;
-            currentY = e.clientY - initialY;
-          }
-
-          xOffset = currentX;
-          yOffset = currentY;
-
-          setTranslate(currentX, currentY, dragItem);
-        }
-      }
-
-      function setTranslate(xPos, yPos, el) {
-        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-      }
+    closeDragElement() {
+      // stop moving when mouse button is released:
+      document.onmouseup = null;
+      document.onmousemove = null;
+      setTimeout(() => {
+        this.canOpen = true;
+      }, 200);
     }
   }
 };

@@ -1,7 +1,7 @@
 <!-- Please remove this file from your project -->
 <template>
 	<div class="text-layer">
-		<h1 class="logo">AMA</h1>
+		<h1 class="logo"  @mouseover="hoverLogo = true" @mouseleave="hoverLogo = false">AMA</h1>
 		<div class="info">
 			<div class="text-layer-info_p">
 				<p>We are a design-led development studio, passionate about generating beautiful, clean and bespoke websites with unique content.</p>
@@ -39,7 +39,7 @@
     right: 1rem;
     font-size: 1.7rem;
     line-height: 1.35;
-    max-width: 80rem;
+    max-width: 65rem;
     p {
       margin-bottom: 2em;
       &:last-child {
@@ -58,6 +58,11 @@
 </style>
 <script>
 export default {
-  name: "JobPosition"
+  name: "JobPosition",
+  data() {
+    return {
+      hoverLogo: false
+    };
+  }
 };
 </script>
