@@ -68,7 +68,7 @@
 	&:link,
 	&:visited,
 	&:active{
-		font-weight: bold;
+		text-decoration: underline;
 	}
   }
   @include media-breakpoint-up(md) {
