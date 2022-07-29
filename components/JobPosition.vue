@@ -37,7 +37,7 @@
 					<li>React/Vue or any other fancy framework that implements headless or decoupled websites</li>
 					<li>Able to handle a project on Shopify (Liquid)</li>
 				</ul>
-				<p>Please send a CV to info@ama.work with:
+				<p>Please send a CV to <a href="mailto:ingo@ama.work">info@ama.work</a> with:
 					<ul>
 						<li>3 projects you have worked on that you love</li>
 						<li>3 latest projects you have worked on</li>
@@ -63,6 +63,13 @@
   p,
   a {
     color: black;
+  }
+  a{
+	&:link,
+	&:visited,
+	&:active{
+		font-weight: bold;
+	}
   }
   @include media-breakpoint-up(md) {
     width: 45rem;
