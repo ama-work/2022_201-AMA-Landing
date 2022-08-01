@@ -15,6 +15,7 @@ export default {
   layout: "default",
   mounted() {
     this.setupIndex();
+    this.setupConsoleLog();
   },
   head() {
     return {
@@ -130,6 +131,20 @@ export default {
         document.documentElement.style.setProperty("--vh", `${vh}px`);
       };
       window.onresize = reportWindowSize;
+    },
+    setupConsoleLog() {
+      console.log(
+        "<!-- --------------------------------------------- -->\n" +
+		"<!-- Code by AMA, http://ama.work (2022) 			-->\n" +
+		"<!-- info@ama.work 								-->\n" +
+		"<!-- -------------------------------------------	-->"
+      );
+	  console.log(
+        "<!-- --------------------------------------------- -->\n" +
+		"<!-- We are currently looking for developers! 		-->\n" +
+		"<!-- info@ama.work 								-->\n" +
+		"<!-- -------------------------------------------	-->"
+	  );
     }
   },
   components: { TextLayer, JobPosition, VideoBG }
