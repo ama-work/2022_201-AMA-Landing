@@ -61,15 +61,15 @@
   left: 0;
   border: 0.1rem solid black;
 
-  p,
-  a {
+  p {
     color: black;
   }
   a {
     &:link,
     &:visited,
     &:active {
-      text-decoration: underline;
+      text-decoration: none;
+      color: blue;
     }
   }
   @include media-breakpoint-up(md) {
