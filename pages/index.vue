@@ -136,13 +136,14 @@ export default {
       console.log(
         "<!-- --------------------------------------------- -->\n" +
 		"<!-- Code by AMA, http://ama.work (2022) 			-->\n" +
-		"<!-- info@ama.work 								-->\n" +
+		"<!-- info@ama.work 									-->\n" +
 		"<!-- -------------------------------------------	-->"
       );
 	  console.log(
         "<!-- --------------------------------------------- -->\n" +
 		"<!-- We are currently looking for developers! 		-->\n" +
-		"<!-- info@ama.work 								-->\n" +
+		"<!-- Send us an email if you want to know more :)	-->\n" +
+		"<!-- info@ama.work 									-->\n" +
 		"<!-- -------------------------------------------	-->"
 	  );
     }
