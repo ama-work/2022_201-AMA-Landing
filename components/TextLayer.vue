@@ -4,7 +4,7 @@
 		<h1 class="logo"  @mouseover="hoverLogo = true" @mouseleave="hoverLogo = false">AMA</h1>
 		<div class="info">
 			<div class="text-layer-info_p">
-				<p>We are a design-led development studio, passionate about generating beautiful, clean and bespoke websites with unique content.</p>
+				<p>Design-led web development agency, passionate about generating beautiful, clean and bespoke websites with unique content.</p>
 			</div>
 			<div class="text-layer-info_a">
 				<p>

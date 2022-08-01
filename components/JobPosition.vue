@@ -37,7 +37,8 @@
 					<li>React/Vue or any other fancy framework that implements headless or decoupled websites</li>
 					<li>Able to handle a project on Shopify (Liquid)</li>
 				</ul>
-				<p>Please send a CV to <a href="mailto:ingo@ama.work">info@ama.work</a> with:
+				<p>Please send a CV to
+					<a href="mailto:ingo@ama.work">info@ama.work</a> with:
 					<ul>
 						<li>3 projects you have worked on that you love</li>
 						<li>3 latest projects you have worked on</li>
@@ -64,12 +65,12 @@
   a {
     color: black;
   }
-  a{
-	&:link,
-	&:visited,
-	&:active{
-		text-decoration: underline;
-	}
+  a {
+    &:link,
+    &:visited,
+    &:active {
+      text-decoration: underline;
+    }
   }
   @include media-breakpoint-up(md) {
     width: 45rem;
@@ -156,7 +157,22 @@ export default {
       }
     },
     toggleJobPositonAcc() {
-      if (this.canOpen) this.isAccActive = !this.isAccActive;
+      if (this.canOpen) {
+        this.isAccActive = !this.isAccActive;
+        this.$ga.event({
+          eventCategory: "button",
+          eventAction: "click",
+          eventLabel: "toggleAccordion",
+          eventValue: 123
+        });
+      } else {
+        this.$ga.event({
+          eventCategory: "drag",
+          eventAction: "drag",
+          eventLabel: "movingElement",
+          eventValue: 124
+        });
+      }
     },
 
     dragElement(elmnt) {
