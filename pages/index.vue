@@ -98,7 +98,7 @@ export default {
         {
           hid: "url",
           itemprop: "url",
-          content: "htts://ama.work"
+          content: "https://ama.work"
         },
         {
           hid: "description",
