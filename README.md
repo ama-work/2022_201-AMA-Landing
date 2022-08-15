@@ -4,7 +4,7 @@
 
 Ama is a design-led web development agency, passionate about generating beautiful, clean, and bespoke websites with unique content.
 
-Visit [ama.work](https://ama.work) for more information. We are actively looking for designers and developers, if you are interested, feel free to write us an email to [info@ama.work].
+Visit [ama.work](https://ama.work) for more information. We are actively looking for designers and developers, if you are interested, feel free to write us an email to info@ama.work.
 
 ## Stack
 
